@@ -1,0 +1,28 @@
+{
+  "name": "majestic_mushroom",
+  "version": "1.0.0",
+  "description": "A webpage, online ordering system and cms for fictional Majestic Mushroom restaurant. Recode of class project to have everything work on MEN stack.",
+  "main": "app.js",
+  "scripts": {
+    "server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typeout/majestic_mushroom.git"
+  },
+  "author": "Domas Butrimavicius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/typeout/majestic_mushroom/issues"
+  },
+  "homepage": "https://github.com/typeout/majestic_mushroom#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.12"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
