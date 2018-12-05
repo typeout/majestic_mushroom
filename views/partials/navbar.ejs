@@ -1,0 +1,41 @@
+<div class="logo"></div>
+    <div class="ui grid">
+      <div class="computer tablet only row">
+          <div class="ui inverted menu fluid green">
+              <a href="/" class="brand item">Majestic Mushroom</a>
+              <a href="/locattion" class="item">Location</a>
+              <a href="/menu" class="item">Menu</a>
+              <a href="/gallery" class="item">Gallery</a>  
+              <a href="/sustainability" class="item">Sustainability</a>  
+              <div class="right menu">
+                <a href="/shopping-cart" class="item">
+                    <i class="shopping cart icon"></i><span class="itemCount"> Checkout</span>
+                    <% if (typeof session.cart != "undefined" && session.cart.totalQty > 0) { %>
+                    <div class="ui red circular tiny label"><%= session.cart.totalQty %></div>
+                    <% }; %>
+                </a>
+              </div>          
+          </div>
+      </div>
+      <div class="mobile only narrow row">
+          <div class="ui inverted menu fluid green">
+              <a href="" class="brand item">Majestic Mushroom</a>
+              <div class="right menu">
+                <a href="/shopping-cart" class="item">
+                    <i class="shopping cart icon"></i><span class="itemCount"> Checkout</span>
+                    <% if (typeof session.cart != "undefined" && session.cart.totalQty > 0) { %>
+                    <div class="ui red circular tiny label"><%= session.cart.totalQty %></div>
+                    <% }; %>
+                </a>
+                <a class="item hamburger"><i class="icon bars"></i></a>
+              </div>
+          </div>
+          
+          <div class="ui inverted vertical menu fluid nav green">
+              <a href="/locattion" class="item">Location</a>
+              <a href="/menu" class="item">Menu</a>
+              <a href="/gallery" class="item">Gallery</a>  
+              <a href="/sustainability" class="item">Sustainability</a>
+          </div>
+      </div>
+    </div>

@@ -1,16 +1,12 @@
-html {
-  height: 100%;
-}
-
 body {
   background-color: #efefef;
-  height: 100%;
+  min-height: 100%;
 }
 
-.container {
+.ui.container {
   background-color: white;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
 }
 
 .logo {
@@ -19,19 +15,52 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  height: 20%;
-}
-
-.bg-light {
-  background-color: #b5d3d2 !important;
-  padding: 4px 24px;
-}
-
-.nav {
-  background-color: #c1dad9;
+  height: 180px;
 }
 
 .inner {
-  margin: 0 auto;
-  padding: 20px;
+  padding: 2rem 2rem;
+  min-height: 100%;
+  margin-bottom: 100px;
+}
+
+.menu-inner {
+  padding: 2rem 2rem;
+  min-height: 100%;
+}
+
+.outer {
+  padding: 0.25rem 0.5rem;
+  min-height: 100%;
+  
+}
+
+.ui.grid {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.ui.grid + .grid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ui.menu {
+  margin: 0;
+  border-radius: 0;
+  font-size: 1.15rem;
+}
+.ui.menu.nav {
+  display: none;
+}
+
+.footer {
+  height: 100px;
+  background-color: #b5d3d2;
+  color: white;
+  padding: 2rem;
+}
+
+.content .description {
+  font-size: 12px;
 }

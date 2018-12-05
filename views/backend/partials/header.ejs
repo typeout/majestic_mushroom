@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../../dist/semantic.min.css">
+  <link rel="stylesheet" href="../../css/backend.css">
+  <title>Majestic Mushroom Dashboard</title>
+</head>
+<body>
+  <div class="ui container">
+      <div class="ui inverted menu olive">
+          <div class="ui container">
+            <% if(currentUser) { %>
+            <a class="item"><i class="cogs large icon"></i> Dashboard</a>
+            <a class="item" href="/backend/menu">Menu</a>
+            <a class="item">Events</a>
+            <a class="item">Careers</a>
+            <% } %>
+            <div class="right menu">
+              <% if(!currentUser) { %>
+                <a class="item" href="/backend/login"><i class="user icon"></i> Log in</a>
+              <% } else { %>
+                <a class="item" href="/backend">Welcome, <%= currentUser.username %> </a>
+                <a class="item" href="/backend/logout"><i class="power off icon"></i> Log out</a>
+              <% } %>
+            </div>
+          </div>
+        </div>

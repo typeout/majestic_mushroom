@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+<div class="inner">
+  <div class="ui centered grid">
+    <% if (products) { %>
+    <div class="row">
+      <div class="ten wide column">
+        <div class="ui big middle aligned celled list">
+          <% products.forEach(product => { %>
+          <div class="item">
+            <div class="right floated content">
+              <a href=""><i class="minus red icon"></i></a>
+              <a href=""><i class="trash alternate red icon"></i></a>
+            </div>
+            <div class="content">
+              <%= product.item.name %>  
+              <div class="description">
+                Quantity: <%= product.qty %>
+                <span class="right floated">Price: $<%= product.price %></span>   
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="ten wide column">
+        <h4>Total: $<%= session.cart.totalPrice %></h4>
+        <a class="button ui" href="/checkout">Checkout</a>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="row">
+      <div class="ten wide column">
+        <h3>No Items in Cart</h3>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<% include partials/footer %>

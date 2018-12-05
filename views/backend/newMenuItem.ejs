@@ -1,0 +1,55 @@
+<% include partials/header %>
+
+<h1>Add new menu item.</h1>
+<form class="ui form" action="/backend/menu" method="POST">
+    <div class="field">
+      <label>Name</label>
+      <input type="text" name="menuItem[name]" placeholder="item name">
+    </div>
+    <div class="field">
+      <label>Picture Path</label>
+      <input type="text" name="menuItem[picture]" placeholder="image path">
+    </div>
+    <div class="field">
+      <label>Price</label>
+      <input type="text" name="menuItem[price]" placeholder="price">
+    </div>
+    <div class="field">
+        <label>Menu</label>
+        <div class="ui selection dropdown">
+            <input type="hidden" name="menuItem[menu]">
+            <i class="dropdown icon"></i>
+            <div class="default text" >Select menu</div>
+            <div class="menu">
+                <div class="item" data-value="Starters, Salads and Sides">Starters, Salads and Sides</div>
+                <div class="item" data-value="Wraps and Sandwitches">Wraps and Sandwitches</div>
+                <div class="item" data-value="Entrees">Entrees</div>
+                <div class="item" data-value="Kids Meals">Kids Meals</div>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>Description</label>
+        <textarea name="menuItem[description]" rows="3" placeholder="description.."></textarea>
+      </div>
+      <div class="field">
+          <label>Calories</label>
+          <input type="text" name="menuItem[calories]" placeholder="calories">
+        </div>
+        <div class="field">
+          <label>Alergens</label>
+          <input type="text" name="menuItem[alergens]" placeholder="alergens">
+        </div>
+    <button class="ui yellow button" type="submit"><i class="plus icon"></i> Add New Item</button>
+    <a class="ui button" href="/backend/menu"><i class="arrow left icon"></i> Back</a>
+  </form>
+
+  <% if (typeof errMsg !== 'undefined') { %>
+    <div class="ui negative message">
+        <div class="header">
+          <%= errMsg %>
+        </div>
+    </div>
+  <% } %>
+
+<% include partials/footer %>

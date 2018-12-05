@@ -1,0 +1,13 @@
+.grid {
+  height: 80%;
+}
+
+.container {
+  height: 80%;
+}
+
+.column {
+  max-width: 450px;
+}
+
+

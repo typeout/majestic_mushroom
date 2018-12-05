@@ -1,5 +1,41 @@
 <% include partials/header %>
 
-<h1>Checking out here</h1>
+
+<div class="inner">
+  <br>
+  <div class="ui centered grid">
+    <div class="row">
+      <div class="eight wide column">
+        <h2 class="ui dividing centered header">Your total is $<%= total %></h2>
+        <form class="ui form" action="/checkout" method="POST" id="payment-form">
+          <div class="field">
+            <label for="name" data-tid="form.name_label">Name</label>
+            <input name="guest[name]" id="name" data-tid="form.name_placeholder" type="text" placeholder="Jane Doe" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email" data-tid="form.email_label">Email</label>
+            <input name="guest[email]" id="email" data-tid="form.email_placeholder" type="email" placeholder="janedoe@gmail.com" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="phone" data-tid="form.phone_label">Phone</label>
+            <input name="guest[phone]" id="phone" data-tid="form.phone_placeholder" type="tel" placeholder="314 555 0123" required autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="card-element">Credit Card</label>
+            <div id="card-element"></div>
+          </div>
+          <button type="submit" data-tid="form.pay_button" class="ui button green">Submit Order</button>
+          <div id="error" role="alert" class="ui negative message">
+            
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="js/checkout.js"></script>
+
 
 <% include partials/footer %>

@@ -1,0 +1,66 @@
+<% include partials/header %>
+<h1>Edit <%= menuItem.name %></h1>
+<form class="ui form" action="/backend/menu/<%= menuItem._id %>?_method=PUT" method="POST">
+    <div class="field">
+      <label>Name</label>
+      <input type="text" name="menuItem[name]" value="<%= menuItem.name %>">
+    </div>
+    <div class="field">
+      <label>Picture Path</label>
+      <input type="text" name="menuItem[picture]" value="<%= menuItem.picture %>">
+    </div>
+    <div class="field">
+      <label>Price</label>
+      <input type="text" name="menuItem[price]" value="<%= menuItem.price %>">
+    </div>
+    <div class="field">
+        <label>Menu</label>
+        <div class="ui selection dropdown">
+            <input type="hidden" name="menuItem[menu]" value="<%= menuItem.menu %>">
+            <i class="dropdown icon"></i>
+            <div class="default text" ><%= menuItem.menu %></div>
+            <div class="menu">
+                <div class="item" data-value="Starters, Salads and Sides">Starters, Salads and Sides</div>
+                <div class="item" data-value="Wraps and Sandwitches">Wraps and Sandwitches</div>
+                <div class="item" data-value="Entrees">Entrees</div>
+                <div class="item" data-value="Kids Meals">Kids Meals</div>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+      <label>Description</label>
+      <textarea name="menuItem[description]" rows="3"><%= menuItem.description %></textarea>
+    </div>
+    <div class="field">
+      <label>Calories</label>
+      <input type="text" name="menuItem[calories]" value="<%= menuItem.calories %>">
+    </div>
+    <div class="field">
+      <label>Alergens</label>
+      <input type="text" name="menuItem[alergens]" value="<%= menuItem.alergens %>">
+    </div>
+    <button class="ui yellow button" type="submit"><i class="sync icon"></i> Update</button>
+    <button class="ui negative button" form="delete"><i class="trash alternate icon"></i> Delete</button>
+    <a class="ui button" href="/backend/menu"><i class="arrow left icon"></i> Back</a>
+  </form>
+  <form class="ui form" id="delete" action="/backend/menu/<%= menuItem._id %>?_method=DELETE" method="POST">
+  </form>
+
+  <% if (typeof errMsg !== 'undefined') { %>
+    <div class="ui negative message">
+        <div class="header">
+          <%= errMsg %>
+        </div>
+    </div>
+  <% }
+  if (typeof successMsg !== 'undefined') { %>
+    <div class="ui success message">
+        <div class="header">
+          <%= successMsg %>
+        </div>
+    </div>
+  <%} %>
+  
+
+
+<% include partials/footer %>

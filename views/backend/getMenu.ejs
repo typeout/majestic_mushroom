@@ -1,0 +1,82 @@
+<% include partials/header %>
+<div class="ui container">
+<h1 class="ui center aligned header">Menu Items</h1>
+
+<div>
+  <a href="/backend/menu/new" class="ui button fluid"><i class="plus icon"></i> Add New Item</a>
+</div>
+
+<h4>Starters, Salads and Sidess</h4>
+<div class="ui huge middle aligned divided list">
+  <% menuItems.filter(item => {
+    return item.menu === "Starters, Salads and Sides";
+  }).forEach(item => { %> 
+  <div class="item">
+    <div class="right floated content">
+      <a class="ui button" href="/backend/menu/<%= item._id %>"><i class="edit icon"></i> Edit</a>
+    </div>
+    <img class="ui avatar image" src="../<%= item.picture %>">
+    <div class="content">
+      <%= item.name %>
+    </div>
+  </div>
+  <% }); %>
+</div>
+
+<h4>Wraps and Sandwitches</h4>
+<div class="ui huge middle aligned divided list">
+  <% menuItems.filter(item => {
+    return item.menu === "Wraps and Sandwitches";
+  }).forEach(item => { %> 
+  <div class="item">
+    <div class="right floated content">
+      <a class="ui button" href="/backend/menu/<%= item._id %>"><i class="edit icon"></i> Edit</a>
+    </div>
+    <img class="ui avatar image" src="../<%= item.picture %>">
+    <div class="content">
+      <%= item.name %>
+    </div>
+  </div>
+  <% }); %>
+</div>
+
+<h4>Entrees</h4>
+<div class="ui huge middle aligned divided list">
+  <% menuItems.filter(item => {
+    return item.menu === "Entrees";
+  }).forEach(item => { %> 
+  <div class="item">
+    <div class="right floated content">
+      <a class="ui button" href="/backend/menu/<%= item._id %>"><i class="edit icon"></i> Edit</a>
+    </div>
+    <img class="ui avatar image" src="../<%= item.picture %>">
+    <div class="content">
+      <%= item.name %>
+    </div>
+  </div>
+  <% }); %>
+</div>
+
+<h4>Kids Meals</h4>
+<div class="ui huge middle aligned divided list">
+  <% menuItems.filter(item => {
+    return item.menu === "Kids Meals";
+  }).forEach(item => { %> 
+  <div class="item">
+    <div class="right floated content">
+      <a class="ui button" href="/backend/menu/<%= item._id %>"><i class="edit icon"></i> Edit</a>
+    </div>
+    <img class="ui avatar image" src="../<%= item.picture %>">
+    <div class="content">
+      <%= item.name %>
+    </div>
+  </div>
+  <% }); %>
+</div>
+<br>
+<div>
+  <a href="/backend/menu/new" class="ui button fluid"><i class="plus icon"></i> Add New Item</a>
+</div>
+<br>
+<br>
+<% include partials/footer %>

@@ -1,52 +1,55 @@
 <% include partials/header %>
+  <!-- <div class="ui grid">
+    <div class="doubling four column row">
+    <div class="column"><button class="ui button green fluid">Apetizers</button></div>
+    <div class="column"><button class="ui button green fluid">Wraps & Sandwitches</button></div>
+    <div class="column"><button class="ui button green fluid">Entrees</button></div>
+    <div class="column"><button class="ui button green fluid">Kids</button></div>
+  </div>
+  </div> -->
 
-<ul class="nav justify-content-center">
-    <li class="nav-item">
-      <a class="nav-link text-secondary" id="apetizers" href="">Apetizers</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-secondary" id="wraps" href="">Wraps & Sandwitches</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-secondary" id="entrees" href="">Entrees</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-secondary" id="kids" href="">Kids</a>
-    </li>
-</ul>
-
-<div class="inner">
-
-  <div class="row">
-      <% menuItems.forEach(item => { %>
-    <div class="col-sm-6 col-md-4">
-      <div class="row">
-        <div class="col-6">Description</div>
-        <div class="col-6">Nutrition</div>
-      </div>         
-      <img src="<%= item.picture %>">
-      <div class="row">
-        <div class="col-8"><%= item.name %></div>
-        <div class="col-4">$<%= item.price %></div>
-      </div>
+  <div class="outer">
+    <div class="inner">
+  <div class="ui top attached tabular menu tiny">
+      <a class="active item starters">
+        Starters
+      </a>
+      <a class="item wraps">
+        Wraps & Sandwitches
+      </a>
+      <a class="item entrees">
+        Entrees
+      </a>
+      <a class="item kids">
+        Kids
+      </a>
     </div>
-    <% }); %>
-  </div>   
-
-</div>
-
-<ul>
-<% 
-let selectedMenu = "Starters, Salads and Sides";
-let loadedMenu = menuItems.filter(item => item.menu === selectedMenu); %>
-
-<% loadedMenu.forEach(item => { %>
-
-  <li><%= item.menu %></li>
-
-<% });
-%>
-</ul>
-
-
+    <div class="ui bottom attached segment">
+        <div class="menu-inner">
+            <div class="ui three doubling stackable cards">
+                <% menuItems.forEach(item => { %>
+                  <div class="ui card">
+                    <div class="image">
+                      <img src="<%= item.picture %>">
+                    </div>
+                    
+                    <div class="content">
+                      <div class="right floated"><span class="ui medium header red">$<%= item.price %></span></div>
+                    <div class="header"><%= item.name %></div>
+                    <div class="meta"><%= item.description %></div>
+                    <div class="description"></div>
+                    </div>
+                    <div class="ui bottom attached two buttons">
+                      <div class="ui basic green button">Nutrition</div>
+                      <a class="ui green button addItem" href="/add-to-cart/<%= item._id %>"><i class="add icon"></i> Add Item</a>  
+                    </div>
+                  </div>
+                <% }); %>
+            </div>
+          </div>
+    </div>
+  </div>
+  </div>
+  
+  <script src="js/menu.js"></script>
 <% include partials/footer %>
