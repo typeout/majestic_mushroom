@@ -6,14 +6,7 @@ const orderSchema = new mongoose.Schema({
   guestPhone: String,
   orderTotal: Number,
   orderDate: { type: Date, default: Date.now },
-  order: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "MenuItem",
-      qty: Number,
-      price: Number
-    }
-  ],
+  order: Object,
   paid: Boolean,
   made: Boolean,
   chargeId: String

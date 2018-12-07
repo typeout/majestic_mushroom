@@ -10,7 +10,7 @@
               <div class="right menu">
                 <a href="/shopping-cart" class="item">
                     <i class="shopping cart icon"></i><span class="itemCount"> Checkout</span>
-                    <% if (typeof session.cart != "undefined" && session.cart.totalQty > 0) { %>
+                    <% if (session.cart) { %>
                     <div class="ui red circular tiny label"><%= session.cart.totalQty %></div>
                     <% }; %>
                 </a>
@@ -23,7 +23,7 @@
               <div class="right menu">
                 <a href="/shopping-cart" class="item">
                     <i class="shopping cart icon"></i><span class="itemCount"> Checkout</span>
-                    <% if (typeof session.cart != "undefined" && session.cart.totalQty > 0) { %>
+                    <% if (session.cart) { %>
                     <div class="ui red circular tiny label"><%= session.cart.totalQty %></div>
                     <% }; %>
                 </a>

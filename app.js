@@ -126,9 +126,11 @@ app.post("/checkout", (req, res) => {
     return res.redirect("/shopping-cart");
   }
   let token = req.body.guest.stripeToken;
+  let amount = req.session.cart.totalPrice * 100;
+  let fixedAmount = +amount.toFixed(2);
 
   stripe.charges.create({
-    amount: req.session.cart.totalPrice * 100,
+    amount: fixedAmount,
     currency: 'usd',
     description: 'Majestic Mushroom',
     source: token,
@@ -142,17 +144,21 @@ app.post("/checkout", (req, res) => {
         guestEmail: req.body.guest.email,
         guestPhone: req.body.guest.phone,
         orderTotal: req.session.cart.totalPrice,
-        order: req.session.cart.items,
+        order: req.session.cart,
         paid: true,
         made: false,
         chargeId: charge.id
       }
-      console.log(order);
+      Order.create(order, (err, newOrder) => {
+        if (err) {
+          console.log(err);
+        } else {
+          req.session.cart = null;
+          res.render("getSuccess");
+        }
+      });
     }
   });
-
-  
-
 });
 
 //add to cart route
@@ -167,7 +173,7 @@ app.get("/add-to-cart/:id", (req, res) => {
     } else {
       cart.add(item, item.id);
       req.session.cart = cart;
-      console.log(req.session.cart);
+      // console.log(req.session.cart);
       res.redirect("/menu");
     }
   });
