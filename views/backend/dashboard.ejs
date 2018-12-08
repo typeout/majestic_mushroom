@@ -1,5 +1,26 @@
 <% include partials/header %>
 
-<h1>This is the dashboard in the back end!</h1>
+<h1>Live Orders</h1>
+<% liveOrders.forEach((order, index) => { %>
+  <div class="ui segments">
+    <div class="ui horizontal segments">
+      <div class="ui segment"><%= order.guestName %></div>
+      <div class="ui segment"><%= order.guestEmail %></div>
+      <div class="ui segment"><%= order.guestPhone %></div>
+      <div class="ui segment"><span class="ui right floated live"><%- order.orderDate.getTime(); %></span></div>
+    </div>
+    <div class="ui segment">
+      <p>Orders will go here</p>
+    </div>
+    <div class="ui clearing segment">
+      <form action="backend/<%= order._id %>?_method=PUT" method="POST">
+        <button class="ui right floated button">Mark as Completed</button>
+      </form>  
+      $<%= order.orderTotal %> - <%= order.orderDate.toDateString() %>
+    </div>
+  </div>
+<% }); %>
 
+
+<script src="js/dashboard.js"></script>
 <% include partials/footer %>

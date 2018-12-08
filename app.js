@@ -59,8 +59,6 @@ app.use(shoppingCartRoutes);
 app.use("/backend", backendIndexRoutes);
 app.use("/backend/menu", backendMenuRoutes);
 
-middleware.seedUser("admin", "password");
-
 //Starting server, listening for environment port(when deployed) or port 5000
 app.listen(process.env.PORT || 5000, () => {
   console.log("Majestic Mushroom server has started...");

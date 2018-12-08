@@ -1,11 +1,30 @@
 const express = require("express"),
       router = express.Router(),
       passport = require("passport"),
-      middleware = require("../middleware");
+      middleware = require("../middleware"),
+      Order = require("../models/order");
 
 //dashboard route
 router.get("/", middleware.isLoggedIn, (req, res) => {
-  res.redirect("backend/menu");
+  Order.find({made: false}, (err, liveOrders) => {
+    if (err) {
+      console.log(err);
+    } else {
+      liveOrders.sort((a, b) => { return b.orderDate.getTime() - a.orderDate.getTime(); });
+      res.render("backend/dashboard", {liveOrders: liveOrders});
+    }
+  });
+});
+
+//set live orders to complete
+router.put("/:id", middleware.isLoggedIn, (req, res) => {
+  Order.findByIdAndUpdate(req.params.id, { made: true }, (err, updatedOrder) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/backend");
+    }
+  });
 });
 
 //login form
