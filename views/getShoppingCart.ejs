@@ -2,15 +2,15 @@
 
 <div class="inner">
   <div class="ui centered grid">
-    <% if (products) { %>
+    <% if (products && session.cart.totalQty > 0) { %>
     <div class="row">
       <div class="ten wide column">
         <div class="ui big middle aligned celled list">
           <% products.forEach(product => { %>
           <div class="item">
             <div class="right floated content">
-              <a href=""><i class="minus red icon"></i></a>
-              <a href=""><i class="trash alternate red icon"></i></a>
+              <a href="/reduce/<%= product.item._id %>"><i class="minus red icon"></i></a>
+              <a href="/remove/<%= product.item._id %>"><i class="trash alternate red icon"></i></a>
             </div>
             <div class="content">
               <%= product.item.name %>  
