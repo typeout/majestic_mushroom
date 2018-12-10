@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A webpage, online ordering system and cms for fictional Majestic Mushroom restaurant. Recode of class project to have everything work on MEN stack.",
   "main": "app.js",
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.4.1"
+  },
   "scripts": {
     "server": "node app.js"
   },
