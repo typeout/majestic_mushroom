@@ -64,3 +64,34 @@ body {
 .content .description {
   font-size: 12px;
 }
+
+.ui.inverted.green.menu {
+  background-color: #b5d3d2;
+}
+
+.ui.green.button:hover, .ui.green.buttons .button:hover {
+  background-color: #b5d3d2;
+}
+
+.ui.green.button:focus, .ui.green.buttons .button:focus {
+  background-color: #b5d3d2;
+}
+
+.ui.green.button, .ui.green.buttons .button {
+  background-color: #b5d3d2;
+}
+
+.ui.basic.green.button, .ui.basic.green.buttons .button {
+  box-shadow: 0 0 0 1px #b5d3d2 inset !important;
+  color: #b5d3d2 !important;
+}
+
+.ui.basic.green.button:hover, .ui.basic.green.buttons .button:hover {
+  box-shadow: 0 0 0 1px #b5d3d2 inset !important;
+  color: #b5d3d2 !important;
+}
+
+.ui.basic.green.button:focus, .ui.basic.green.buttons .button:focus {
+  box-shadow: 0 0 0 1px #b5d3d2 inset !important;
+  color: #b5d3d2 !important;
+}
