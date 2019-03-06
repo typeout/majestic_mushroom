@@ -2,6 +2,7 @@ const express    = require("express"),
       app        = express(),
       bodyParser = require("body-parser"),
       mongoose   = require("mongoose"),
+      flash      = require("connect-flash"),
       methodOverride = require("method-override"),
       passport = require("passport"),
       LocalStrategy = require("passport-local"),
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(express.static('assets'));
 app.use(express.static('semantic'));
+app.use(flash());
 
 // Connecting to mlab mongodb, need to put that url to a keys folder away from the app!
 const db = require('./config/keys.js').mongoURI;
